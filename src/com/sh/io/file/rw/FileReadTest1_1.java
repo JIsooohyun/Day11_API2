@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class FileReadTest1_1 {
 
 	public static void main(String[] args) {
-		MemberController mc = new MemberController();
-		mc.start();
+		//MemberController mc = new MemberController();
+		//mc.start();
 		
 	}
 
