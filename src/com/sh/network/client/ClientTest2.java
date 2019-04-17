@@ -28,6 +28,7 @@ public class ClientTest2 {
 			while(true) {
 				os = socket.getOutputStream();
 				ow = new OutputStreamWriter(os);
+				
 				bw = new BufferedWriter(ow);
 				System.out.println("서버로 보낼 메세지를 입력해주세요");
 				String str = sc.nextLine();

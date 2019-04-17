@@ -33,8 +33,12 @@ public class ServerTest3 {
 		BufferedWriter bw = null;
 
 		String food = null;
+		
+		ServerMenu sm = new ServerMenu();
+		
 
 		try {
+			sm.init();
 			System.out.println("Server : 클라이언트 접속 받을 준비중입니다.");
 			ss = new ServerSocket(8180);
 			socket = ss.accept();
@@ -46,10 +50,19 @@ public class ServerTest3 {
 				br = new BufferedReader(ir);
 				String str = br.readLine();
 				
+				if(str.equals("1")) {
+					food = sm.getLunch();
+				}else if(str.equals("2")) {
+					food = sm.getDinner();
+				}else {
+					food ="준비중";
+				}
 				
 				os = socket.getOutputStream();
 				ow = new OutputStreamWriter(os);
 				bw = new BufferedWriter(ow);
+				
+				/*내가 짠 소스코드
 				if(str.equals("1")) {
 					//점심메뉴
 					file = new File("C:\\test", "lunch.txt");
@@ -91,7 +104,7 @@ public class ServerTest3 {
 					index = random.nextInt(result.length);
 					food = result[index];
 					
-				}
+				}*/
 				bw.write(food);
 				bw.write("\r\n");
 				bw.flush();
